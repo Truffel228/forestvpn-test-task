@@ -14,4 +14,22 @@ class Article {
   final String imageUrl;
   final bool readed;
   final String? description;
+
+  Article copyWith({
+    String? id,
+    String? title,
+    DateTime? publicationDate,
+    String? imageUrl,
+    bool? readed,
+    String? description,
+  }) {
+    return Article(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      publicationDate: publicationDate ?? this.publicationDate,
+      imageUrl: imageUrl ?? this.imageUrl,
+      readed: readed ?? this.readed,
+      description: description ?? this.description,
+    );
+  }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:forestvpn_test/repositories/news/repository.dart';
+import 'package:forestvpn_test/routes.dart';
 
 void main() {
   runApp(const ForestVPNTestApp());
@@ -9,12 +12,13 @@ class ForestVPNTestApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'ForestVPN test',
-      home: Scaffold(
-        body: Center(
-          child: Text('News screen'),
-        ),
+    return RepositoryProvider<AbstractNewsRepository>(
+      create: (context) => MockNewsRepository(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'ForestVPN test',
+        initialRoute: Routes.mainScreen,
+        routes: Routes.getRoutes(),
       ),
     );
   }
