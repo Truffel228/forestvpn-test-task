@@ -8,23 +8,44 @@ class Carousel extends StatelessWidget {
   const Carousel({
     Key? key,
     required this.articles,
+    required this.title,
   }) : super(key: key);
   final List<Article> articles;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider.builder(
-      options: CarouselOptions(
-          height: MediaQuery.of(context).size.width * 0.8,
-          enableInfiniteScroll: false,
-          viewportFraction: 1,
-          pageSnapping: true),
-      itemCount: articles.length,
-      itemBuilder: (context, index, realIndex) {
-        return _CarouselItem(
-          article: articles[index],
-        );
-      },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 28),
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontFamily: 'SF Pro Display',
+              fontWeight: FontWeight.w400,
+              fontSize: 20,
+              color: Colors.black,
+            ),
+          ),
+        ),
+        const SizedBox(height: 20),
+        CarouselSlider.builder(
+          options: CarouselOptions(
+              height: MediaQuery.of(context).size.width * 0.8,
+              enableInfiniteScroll: false,
+              viewportFraction: 1,
+              pageSnapping: true),
+          itemCount: articles.length,
+          itemBuilder: (context, index, realIndex) {
+            return _CarouselItem(
+              article: articles[index],
+            );
+          },
+        ),
+      ],
     );
   }
 }
@@ -72,6 +93,7 @@ class _CarouselItem extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
+                      fontFamily: 'SF Pro Display',
                       fontSize: 28,
                       fontWeight: FontWeight.w400,
                       color: Colors.white,

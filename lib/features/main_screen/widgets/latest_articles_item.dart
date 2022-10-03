@@ -60,6 +60,7 @@ class LatestArticlesItem extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
+                        fontFamily: 'SF Pro Display',
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
                     ),
@@ -69,6 +70,7 @@ class LatestArticlesItem extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
+                        fontFamily: 'SF Pro Display',
                       fontWeight: FontWeight.w400,
                       fontSize: 12,
                       color: Color(0xFF9A9A9A),
